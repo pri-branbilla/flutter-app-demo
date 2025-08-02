@@ -22,30 +22,53 @@ class MyApp extends StatelessWidget {
 }
 
 class ListContents extends StatelessWidget {
-  const ListContents({super.key});
+  final List<CatalogoItem> secoes = [
+    CatalogoItem(
+      titulo: 'Widgets de Conteúdo',
+      icone: Icons.text_fields,
+      descricao: 'Exemplos de widgets básicos como Text, Image, Icon...',
+      destino: WidgetsConteudo(),
+    ),
+    CatalogoItem(
+      titulo: 'Wigets de Layout',
+      icone: Icons.view_agenda,
+      descricao: 'Exemplos / demonstrações de padding, column, flexible...',
+      destino: WidgetsLayout(),
+    ),
+  ];
+  ListContents({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Widgets de conteúdo')),
       body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => WidgetsConteudo()),
-            ),
-            child: Text('Widgets de conteúdo'),
-          ),
-          ElevatedButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => WidgetsLayout()),
-            ),
-            child: Text('Widgets de layout'),
-          ),
-        ],
+        children: secoes
+            .map(
+              (item) => ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => item.destino),
+                ),
+                child: Text(item.titulo),
+              ),
+            )
+            .toList(),
       ),
     );
   }
+}
+
+class CatalogoItem {
+  final String titulo;
+  final IconData icone;
+  final String descricao;
+  final Widget destino;
+
+  CatalogoItem({
+    required this.titulo,
+    required this.icone,
+    required this.descricao,
+    required this.destino,
+  });
 }
