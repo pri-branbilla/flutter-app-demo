@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_exemplo/screens/widgets_conteudo.dart';
+import 'package:projeto_exemplo/screens/widgets_layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +36,13 @@ class ListContents extends StatelessWidget {
               MaterialPageRoute(builder: (_) => WidgetsConteudo()),
             ),
             child: Text('Widgets de conteúdo'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => WidgetsLayout()),
+            ),
+            child: Text('Widgets de layout'),
           ),
         ],
       ),
