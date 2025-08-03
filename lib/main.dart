@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_exemplo/screens/ciclo_stateful_parent.dart';
 import 'package:projeto_exemplo/screens/widgets_conteudo.dart';
 import 'package:projeto_exemplo/screens/widgets_layout.dart';
 
@@ -34,6 +35,12 @@ class ListContents extends StatelessWidget {
       icone: Icons.view_agenda,
       descricao: 'Exemplos / demonstrações de padding, column, flexible...',
       destino: WidgetsLayout(),
+    ),
+    CatalogoItem(
+      titulo: 'Ciclo de Vida - Stateful',
+      icone: Icons.sync,
+      descricao: 'Entendendo o ciclo de vida de um StatefulWidget',
+      destino: CicloStatefulParent(),
     ),
   ];
   ListContents({super.key});
